@@ -73,7 +73,7 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 // import 'monaco-editor/esm/vs/basic-languages/postiats/postiats.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/powershell/powershell.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/pug/pug.contribution.js';
-// import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/r/r.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/razor/razor.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/redis/redis.contribution.js';
@@ -85,8 +85,7 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 // import 'monaco-editor/esm/vs/basic-languages/sql/sql.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/swift/swift.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/vb/vb.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/xml/xml.js';
-import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/yaml/yaml.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
 // import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution';
@@ -125,10 +124,6 @@ monaco.editor.create(document.getElementById('container'), {
 		'	def feeding_frenzy(self):',
 		'		eat(9.25)',
 		'		return "Yum yum"',
-  ].join('\n'),
-  automaticLayout: true,
-  language: "xml",
-  minimap: { enabled: false },
-  model: this.model,
-  theme: "vs-dark"
+	].join('\n'),
+	language: 'python'
 });
