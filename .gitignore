@@ -1,2 +1,4 @@
-dist/*.js
+.vscode
+dist
 node_modules
+xml

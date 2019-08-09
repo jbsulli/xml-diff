@@ -73,7 +73,7 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 // import 'monaco-editor/esm/vs/basic-languages/postiats/postiats.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/powershell/powershell.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/pug/pug.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/r/r.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/razor/razor.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/redis/redis.contribution.js';
@@ -90,40 +90,29 @@ import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
 // import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
 // import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution';
 
-
+declare global {
+  interface Window { // tslint:disable-line interface-name
+    MonacoEnvironment: any;
+    monaco: any;
+  }
+}
 
 self.MonacoEnvironment = {
-	getWorkerUrl: function (moduleId, label) {
+	getWorkerUrl: function (/*moduleId, label*/) {
 		// if (label === 'json') {
-		// 	return './json.worker.bundle.js';
+		// 	return './json.worker.js';
 		// }
 		// if (label === 'css') {
-		// 	return './css.worker.bundle.js';
+		// 	return './css.worker.js';
 		// }
 		// if (label === 'html') {
-		// 	return './html.worker.bundle.js';
+		// 	return './html.worker.js';
 		// }
 		// if (label === 'typescript' || label === 'javascript') {
-		// 	return './ts.worker.bundle.js';
+		// 	return './ts.worker.js';
 		// }
-		return './editor.worker.bundle.js';
+		return './editor.worker.js';
 	}
 }
 
-monaco.editor.create(document.getElementById('container'), {
-	value: [
-		'from banana import *',
-		'',
-		'class Monkey:',
-		'	# Bananas the monkey can eat.',
-		'	capacity = 10',
-		'	def eat(self, N):',
-		'		\'\'\'Make the monkey eat N bananas!\'\'\'',
-		'		capacity = capacity - N*banana.size',
-		'',
-		'	def feeding_frenzy(self):',
-		'		eat(9.25)',
-		'		return "Yum yum"',
-	].join('\n'),
-	language: 'python'
-});
+export default monaco;
